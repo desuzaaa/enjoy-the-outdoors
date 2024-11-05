@@ -42,11 +42,16 @@ function loadParks() {
 
     let td8 = tr.insertCell();
     if (park.Visit) {
-      td8.innerText = park.Visit;
+       let anchor = document.createElement("a");
+       anchor.target = "_blank";
+       anchor.href = park.Visit;
+       anchor.innerText = "Visit Website"
+       td8.appendChild(anchor);
     } else {
       td8.innerText = "N/A";
     }
   }
+  
 }
 loadParks();
 
@@ -59,16 +64,16 @@ function filterByState() {
     let tr = parksTbody.insertRow();
 
     let td1 = tr.insertCell();
-    td1.innerText = park.LocationName;
+    td1.innerText = park.LocationName || "N/A";
 
     let td2 = tr.insertCell();
-    td2.innerText = park.Address;
+    td2.innerText = park.Address || "N/A";
 
     let td3 = tr.insertCell();
-    td3.innerText = park.City;
+    td3.innerText = park.City || "N/A";
 
     let td4 = tr.insertCell();
-    td4.innerText = park.State;
+    td4.innerText = park.State || "N/A";
 
     let td5 = tr.insertCell();
     td5.innerText = park.ZipCode || "N/A"; //&&(and), ||(or), ! or !!(not)
@@ -80,10 +85,16 @@ function filterByState() {
     td7.innerText = park.Fax || "N/A";
 
     let td8 = tr.insertCell();
-    td8.innerText = park.Visit || "N/A";
+    if (park.Visit) {
+      let anchor = document.createElement("a");
+      anchor.target = "_blank";
+      anchor.href = park.Visit;
+      anchor.innerText = "Visit Website";
+      td8.appendChild(anchor);
+    } else {
+      td8.innerText = "N/A";
+    }
   }
-
-  
 }
 
 function getParks() {
@@ -99,7 +110,7 @@ getParks();
 
 function filterByPark() {
   let sortedType = parkTypeDropdown.value;
-  let filteredParks = parkTypeData.filter((park) => park.type === sortedType);
+  let filteredParks = nationalParksArray.filter((park) => park.LocationName.includes(sortedType));
 
   parksTbody.innerHTML = "";
 
@@ -107,16 +118,16 @@ function filterByPark() {
     let tr = parksTbody.insertRow();
 
     let td1 = tr.insertCell();
-    td1.innerText = park.LocationName;
+    td1.innerText = park.LocationName || "N/A";
 
     let td2 = tr.insertCell();
-    td2.innerText = park.Address;
+    td2.innerText = park.Address || "N/A";
 
     let td3 = tr.insertCell();
-    td3.innerText = park.City;
+    td3.innerText = park.City || "N/A";
 
     let td4 = tr.insertCell();
-    td4.innerText = park.State;
+    td4.innerText = park.State || "N/A";
 
     let td5 = tr.insertCell();
     td5.innerText = park.ZipCode || "N/A";
@@ -128,6 +139,14 @@ function filterByPark() {
     td7.innerText = park.Fax || "N/A";
 
     let td8 = tr.insertCell();
-    td8.innerText = park.Visit || "N/A";
+    if (park.Visit) {
+      let anchor = document.createElement("a");
+      anchor.target = "_blank";
+      anchor.href = park.Visit;
+      anchor.innerText = "Visit Website";
+      td8.appendChild(anchor);
+    } else {
+      td8.innerText = "N/A";
+    }
   }
 }

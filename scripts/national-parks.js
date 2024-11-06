@@ -108,7 +108,7 @@ function getParks() {
 
 getParks();
 
-function filterByPark() {
+function filterByParkType() {
   let sortedType = parkTypeDropdown.value;
   let filteredParks = nationalParksArray.filter((park) => park.LocationName.includes(sortedType));
 

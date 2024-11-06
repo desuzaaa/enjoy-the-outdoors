@@ -15,16 +15,23 @@
   <body>
     <main>
       <h1>Mountains</h1>
+
+      <form id="mountainSelect" class="mb-2 d-flex">
+        <label class="form-label" for="mountainDrop">Mountains</label>
+        <select class="form-label" id="mountainDrop" onchange="displayMountain()">
+          <option value="">Select...</option>
+        </select>
+      </form>
+
       <div class="card" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="..." />
+        <img id="mountainImage" src= "images/Adams-StoryImage_2.jpg" class="card-img-top" alt="images" />
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 id="mountainTitle" class="card-title">Mountain Name</h5>
+          <h6 id="mountainElevation" class="card-text">Elevation</h6>
+          <p id="mountainDescription" class="card-text">Mountain Description</p>
         </div>
       </div>
+
     </main>
     <script src="scripts/mountainData.js"></script>
     <script src="scripts/mountains.js"></script>

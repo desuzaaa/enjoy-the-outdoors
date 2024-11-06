@@ -15,6 +15,19 @@
   <body>
     <main class="container">
       <h2>National Parks</h2>
+
+      <fieldset class="radio-group">
+        <legend></legend>
+        <div>
+          <input type="radio" name="searchMethod" id="parkLocationRadio" checked />
+          <label for="parkLocationRadio">Location</label>
+        </div>
+        <div>
+          <input type="radio" name="searchMethod" id="parkTypesRadio" />
+          <label for="parkTypesRadio">Park Types</label>
+        </div>
+      </fieldset>
+
       <div class="d-flex">
         <div id="stateDrop">
           <form class="mb-2">
@@ -24,6 +37,7 @@
             </select>
           </form>
         </div>
+
         <div id="parkTypesDrop">
           <form class="mb-2">
             <label class="form-label" for="parkTypeDropdown">Park Type</label>
@@ -33,6 +47,7 @@
           </form>
         </div>
       </div>
+
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -48,6 +63,7 @@
         </thead>
         <tbody id="parksTbody"></tbody>
       </table>
+
     </main>
     <script src="scripts/locationData.js"></script>
     <script src="scripts/parkTypeData.js"></script>

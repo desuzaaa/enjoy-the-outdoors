@@ -42,16 +42,15 @@ function loadParks() {
 
     let td8 = tr.insertCell();
     if (park.Visit) {
-       let anchor = document.createElement("a");
-       anchor.target = "_blank";
-       anchor.href = park.Visit;
-       anchor.innerText = "Visit Website"
-       td8.appendChild(anchor);
+      let anchor = document.createElement("a");
+      anchor.target = "_blank";
+      anchor.href = park.Visit;
+      anchor.innerText = "Visit Website";
+      td8.appendChild(anchor);
     } else {
       td8.innerText = "N/A";
     }
   }
-  
 }
 loadParks();
 
@@ -150,3 +149,28 @@ function filterByParkType() {
     }
   }
 }
+
+const parkLocationRadio = document.querySelector("#parkLocationRadio");
+const parkTypesRadio = document.querySelector("#parkTypesRadio");
+
+const stateDrop = document.querySelector("#stateDrop");
+const parkTypesDrop = document.querySelector("#parkTypesDrop");
+
+function filterTypeChanged() {
+  if (parkLocationRadio.checked) {
+    stateDrop.style.display = "block";
+  } else {
+    stateDrop.style.display = "none";
+  }
+  console.log(parkLocationRadio);
+  
+  if (parkTypesRadio.checked) {
+    parkTypesDrop.style.display = "block";
+  } else {
+    parkTypesDrop.style.display = "none";
+  }
+}
+
+parkLocationRadio.onchange = filterTypeChanged;
+parkTypesRadio.onchange = filterTypeChanged;
+filterTypeChanged();

@@ -23,13 +23,13 @@ function loadParks() {
     td1.innerText = park.LocationName;
 
     let td2 = tr.insertCell();
-    td2.innerText = park.Address;
+    td2.innerText = park.Address || "N/A";
 
     let td3 = tr.insertCell();
     td3.innerText = park.City;
 
     let td4 = tr.insertCell();
-    td4.innerText = park.State;
+    td4.innerText = park.State || "N/A";;
 
     let td5 = tr.insertCell();
     td5.innerText = park.ZipCode || "N/A";
